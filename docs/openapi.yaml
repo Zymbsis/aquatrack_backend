@@ -8,7 +8,7 @@ info:
   description: |
     This is a documentation of AquaTracker app
 servers:
-  - url: https://aquatracker-node.onrender.com
+  - url: https://aquatrack-backend-f2zw.onrender.com
 tags:
   - name: Users
     description: Operations with user.
