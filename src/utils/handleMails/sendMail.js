@@ -19,7 +19,8 @@ export const sendMail = async (mailType, user) => {
 
   const domain = env(ENV_VARS.APP_DOMAIN);
   const from = env(ENV_VARS.SMTP_FROM);
-  const link = `${domain}/aquatrack/${mailType}?token=${token}`;
+  const link = `${domain}/aquatrack?token=${token}`;
+  // const link = `${domain}/aquatrack/${mailType}?token=${token}`;
   const template = await getMailTemplate(`${mailType}-mail.html`);
   const html = template({ name, link });
   const subject = `AquaTracker: Your ${mailType.replaceAll(

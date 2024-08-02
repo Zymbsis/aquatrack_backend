@@ -67,9 +67,7 @@ export const registerUser = async (payload) => {
 // ACTIVATE_USER //
 export const activateUser = async (token) => {
   const entries = verifyToken(token);
-
   const { sub: _id, email } = entries;
-
   const user = await UsersCollection.findOne({
     email,
     _id,
