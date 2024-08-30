@@ -37,7 +37,11 @@ export const getInfoByDay = async (date, userId) => {
     {
       $addFields: {
         completionRate: {
-          $divide: ['$totalVolume', '$lastDocument.dailyNorma'],
+          $cond: {
+            if: { $eq: ['$lastDocument.dailyNorma', 0] },
+            then: 0,
+            else: { $divide: ['$totalVolume', '$lastDocument.dailyNorma'] },
+          },
         },
         date,
       },
